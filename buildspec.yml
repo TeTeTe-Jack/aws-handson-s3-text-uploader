@@ -1,0 +1,36 @@
+version: 0.2
+phases:
+  install:
+    commands:
+    - echo "Install started on `TZ=-9 date '+%Y/%m/%d %H:%M:%S JST'`"
+    - echo "Install ended on `TZ=-9 date '+%Y/%m/%d %H:%M:%S JST'`"
+  pre_build:
+    commands:
+      - echo "Pre-Build started on `TZ=-9 date '+%Y/%m/%d %H:%M:%S JST'`"
+      - npm ci
+      - echo "Pre-Build ended on `TZ=-9 date '+%Y/%m/%d %H:%M:%S JST'`"
+  build:
+    commands:
+      - echo "Build started on `TZ=-9 date '+%Y/%m/%d %H:%M:%S JST'`"
+      - npm run build
+      - npm run test
+      - echo "Build ended on `TZ=-9 date '+%Y/%m/%d %H:%M:%S JST'`"
+  post_build:
+    commands:
+      - echo "Post-Build started on `TZ=-9 date '+%Y/%m/%d %H:%M:%S JST'`"
+      - echo "Post-Build ended on `TZ=-9 date '+%Y/%m/%d %H:%M:%S JST'`"
+reports:
+  jest_reports:
+    files:
+      - report.xml
+    file-format: JUNITXML
+    base-directory: report
+  coverage_reports:
+    files:
+      - clover.xml
+    file-format: CLOVERXML
+    base-directory: coverage
+artifacts:
+  files:
+    - ./**/*
+  base-directory: dist

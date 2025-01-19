@@ -1,0 +1,23 @@
+{
+  "name": "s3textuploader",
+  "version": "1.0.0",
+  "description": "AWSのCodeDeployを使ったハンズオン用のソースです。\r 利用方法につきましては[CodeBuildでLambda関数の自動ビルド・テスト・デプロイをする](https://tetete-home.com/article/)を参照してください。\r こちらの記事では、CodeDeployを使ったCodeBuildを使って自動ビルド・テスト・Lambda関数のデプロイをする方法を解説しています。",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@aws-sdk/client-s3": "^3.726.0",
+    "@types/aws-lambda": "^8.10.147",
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "jest-junit": "^16.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
